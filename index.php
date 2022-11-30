@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/output.css">
 </head>
 <body>
+    <?php
+        require('data.php');
+        include 'pages/showAll.php';
+    ?>
 </body>
 </html>
 
