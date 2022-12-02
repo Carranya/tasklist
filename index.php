@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="css/output.css">
 </head>
 <body>
+    <form action='index.php' method='post'>
     <?php
         require('data.php');
-        include 'pages/showAll.php';
+        include 'pages/main.php';
     ?>
+    </form>
 </body>
 </html>
 
