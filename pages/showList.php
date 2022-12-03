@@ -5,7 +5,7 @@
     global $data;
     $step = 0;
     $showAll = true;
-    unset($showAll);
+    // unset($showAll);
     foreach($data as $list){
         if(!isset($showAll)){
             if($list['active'] == 0){
@@ -34,11 +34,14 @@
 
         if($list['active'] == 0){
             echo "<div class='flex'>";
-                include 'buttons/done.php';
-                include 'buttons/done.php';
+                include 'buttons/delete.php';
+                include 'buttons/undone.php';
             echo "</div>";
         } else {
-            include 'buttons/done.php';
+            echo "<div class='flex'>";
+                include 'buttons/pickToEdit.php';
+                include 'buttons/done.php';
+            echo "</div>";
         }
             echo "</div>";
     }
