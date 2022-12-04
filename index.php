@@ -11,6 +11,7 @@
     <form action='index.php' method='post'>
     <?php
         require('data.php');
+        require('functions/functions.php');
         include 'pages/main.php';
     ?>
     </form>
