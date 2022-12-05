@@ -1,5 +1,10 @@
 <?php
+require('data.php');
 
-$date = new DateTimeImmuTable();
-$show = $date->format('Y-m-d');
-echo $show;
+global $data;
+
+foreach($data as $da){
+    $show = $da['id'];
+}
+
+var_dump($show);
