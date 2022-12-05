@@ -29,13 +29,22 @@
                 echo "<div class='p-3 " . $bg . " flex justify-between items-center'>";
             }
                 echo "<span>" . $list['id'] . "</span>";
-                echo "<span>" . $list['task'] . "</span>";
+                if(@$_POST['pickToEdit'] == $list['id']){
+                    echo "<input name='taskEdit' value='" . $list['task'] . "' size='10'>";
+                } else {
+                   echo "<span>" . $list['task'] . "</span>";
+                }
                 echo "<span>" . $showDate . "</span>";
 
             if($list['active'] == 0){
                 echo "<div class='flex'>";
                     include 'buttons/delete.php';
                     include 'buttons/undone.php';
+                echo "</div>";
+            } else if(@$_POST['pickToEdit'] == $list['id']) {
+                echo "<div class='flex'>";
+                    include 'buttons/edit.php';
+                    include 'buttons/cancel.php';
                 echo "</div>";
             } else {
                 echo "<div class='flex'>";
