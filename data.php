@@ -1,21 +1,21 @@
-<?php $data = [[
-            'id' => 1,
-            'task' => 'creating2',
-            'date' => '2022-11-25',
+<?php $data =[['id' => 1,
+            'task' => 'Neue Aufgabenliste erstellen',
+            'date' => '2022-12-05',
             'active' => 1,
-    ],[
-            'id' => 2,
-            'task' => 'sample',
-            'date' => '2022-11-15',
+        ],['id' => 2,
+            'task' => 'Kitchenwiz weitermachen',
+            'date' => '2022-12-05',
             'active' => 1,
-    ],[
-            'id' => 3,
-            'task' => 'testing',
-            'date' => '2022-11-08',
-            'active' => 0,
-    ],[
-            'id' => 4,
+        ],['id' => -100,
             'task' => 'Neu4',
-            'date' => '2022-12-04',
+            'date' => '2022-12-05',
             'active' => 0,
-    ],];
+        ],['id' => 4,
+            'task' => 'Kitchenwiz weitermachen',
+            'date' => '2022-12-05',
+            'active' => 1,
+        ],['id' => -100,
+            'task' => 'Wäsche machen',
+            'date' => '2022-12-05',
+            'active' => 0,
+        ],];
