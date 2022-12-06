@@ -106,3 +106,25 @@ function undone($id){
     $content .= "];";
     createData($content);
 }
+
+function delete($id){
+    global $data;
+    $lists = $data;
+    $content = '<?php $data =[';
+    foreach($lists as $list){
+        $content .= "[";
+        if($list['id'] == $id){
+            $content .= "'id' => -100,";
+        } else {
+            $content .= "'id' => " . $list['id'] . ",";
+        }
+
+        $content .= "
+            'task' => '" . $list['task'] . "',
+            'date' => '" . $list['date'] . "',
+            'active' => " . $list['active'] . ",
+        ],";
+    }
+    $content .= "];";
+    createData($content);
+}
