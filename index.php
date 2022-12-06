@@ -7,13 +7,15 @@
     <title>Task List</title>
     <link rel="stylesheet" href="css/output.css">
 </head>
-<body>
+<body class='bg-blue-100'>
     <form action='index.php' method='post'>
-    <?php
-        require('data.php');
-        require('functions/functions.php');
-        include 'pages/main.php';
-    ?>
+    <div class='flex justify-center'>
+        <?php
+            require('data.php');
+            require('functions/functions.php');
+            include 'pages/main.php';
+        ?>
+    </div>
     </form>
 </body>
 </html>
