@@ -16,6 +16,10 @@ if(isset($_POST['done'])){
 if(isset($_POST['undone'])){
     undone($_POST['undone']);
 }
+
+if(isset($_POST['delete'])){
+    delete($_POST['delete']);
+}
     require('data.php');
     include 'pages/showList.php';
 ?>
