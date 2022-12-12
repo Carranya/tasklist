@@ -1,130 +1,68 @@
 <?php
 
-function createData($content){
+function done($id, $active){
+    global $data;
+    $content = "<?php \$data = [\n\n";
+    foreach($data as $dat){
+        $content .= "[\n";
+        $content .= "'id' => " . $dat['id'] . ",\n";
+        $content .= "'task' => '" . $dat['task'] . "',\n";
+        $content .= "'date' => '" . $dat['date'] . "',\n";
+        if($dat['id'] == $id){
+            $content .= "'active' => " . $active . ",\n";
+        } else {
+            $content .= "'active' => " . $dat['active'] . ",\n";
+        }
+        $content .= "],\n\n";
+    }
+    $content .= "];";
     unlink('data.php');
     file_put_contents('data.php', $content);
 }
 
-function create($task){
+function edit($id, $newTitle){
     global $data;
-    $lists = $data;
-    
-    $id = count($lists) + 1;
-    $actualDate = new DateTimeImmuTable();
-    $date = $actualDate->format('Y-m-d');
-    $newLine = "[
-        'id' => $id,
-        'task' => '$task',
-        'date' => '$date',
-        'active' => 1,
-    ],";
-
-    $content = '<?php $data = [';
-
-    foreach ($lists as $list){
-        $content .= "[
-            'id' => " . $list['id'] . ",
-            'task' => '" . $list['task'] . "',
-            'date' => '" . $list['date'] . "',
-            'active' => " . $list['active'] . ",
-        ],";
+    $content = "<?php \$data = [\n\n";
+    foreach($data as $dat){
+        $content .= "[\n";
+        $content .= "'id' => " . $dat['id'] . ",\n";
+        if($dat['id'] == $id){
+            $content .= "'task' => '" . $newTitle . "',\n";
+        } else {
+            $content .= "'task' => '" . $dat['task'] . "',\n";
+        }
+        $content .= "'date' => '" . $dat['date'] . "',\n";
+        $content .= "'active' => " . $dat['active'] . ",\n";
+        $content .= "],\n\n";
     }
-
-    $content .= $newLine;
     $content .= "];";
-    createData($content);
+    unlink('data.php');
+    file_put_contents('data.php', $content);
 }
 
-function edit($id, $task){
+function create($newTask){
     global $data;
-    $lists = $data;
-    $content = '<?php $data = [';
-    foreach($lists as $list){
-        $content .= "[
-            'id' => " . $list['id'] . ",";
-        if($list['id'] == $id){
-            $content .= "
-            'task' => '$task',";
-        } else {
-            $content .= "
-            'task' => '" . $list['task'] . "',";
-        }
-        $content .= "
-            'date' => '" . $list['date'] . "',
-            'active' => " . $list['active'] . ",
-    ],";
+    $content = "<?php \$data = [\n\n";
+    foreach($data as $dat){
+        $content .= "[\n";
+        $content .= "'id' => " . $dat['id'] . ",\n";
+        $content .= "'task' => '" . $dat['task'] . "',\n";
+        $content .= "'date' => '" . $dat['date'] . "',\n";
+        $content .= "'active' => " . $dat['active'] . ",\n";
+        $content .= "],\n\n";
     }
+
+    $id = count($data)+1;
+    $date = new DateTimeImmuTable;
+    $newDate = $date->format('Y-m-d');
+
+    $content .= "[\n";
+    $content .= "'id' => " . $id . ",\n";
+    $content .= "'task' => '" . $newTask . "',\n";
+    $content .= "'date' => '" . $newDate . "',\n";
+    $content .= "'active' => 1,\n";
+    $content .= "],\n\n";
     $content .= "];";
-    createData($content);
-}
-
-function done($id){
-    global $data;
-    $lists = $data;
-    $content = '<?php $data = [';
-    foreach($lists as $list){
-        $content .= "[
-            'id' => " . $list['id'] . ",
-            'task' => '" . $list['task'] . "',
-            'date' => '" . $list['date'] . "',";
-          
-        if($list['id'] == $id){
-            $content .= "
-            'active' => 0,";
-        } else {
-            $content .= "
-            'active' => " . $list['active'] . ",";
-        }
-        $content .= "
-    ],";
-    }
-    $content .= "];";
-    createData($content);
-}
-
-function undone($id){
-    global $data;
-    $lists = $data;
-    $content = '<?php $data = [';
-    foreach($lists as $list){
-        $content .= "[
-            'id' => " . $list['id'] . ",
-            'task' => '" . $list['task'] . "',
-            'date' => '" . $list['date'] . "',
-            ";
-
-        if($list['id'] == $id){
-            $content .= "
-            'active' => 1,";
-        } else {
-            $content .= "
-            'active' => " . $list['active'] . ",";
-        }
-        $content .= "
-        ],";
-    }
-    $content .= "];";
-    createData($content);
-}
-
-function delete($id){
-    global $data;
-    $lists = $data;
-    $content = '<?php $data =[';
-    foreach($lists as $list){
-        $content .= "[";
-        if($list['id'] == $id){
-            $content .= "'id' => -100,";
-        } else {
-            $content .= "'id' => " . $list['id'] . ",";
-        }
-
-        $content .= "
-            'task' => '" . $list['task'] . "',
-            'date' => '" . $list['date'] . "',
-            'active' => " . $list['active'] . ",
-        ],";
-    }
-    $content .= "];";
-    createData($content);
+    unlink('data.php');
+    file_put_contents('data.php', $content);
 }
