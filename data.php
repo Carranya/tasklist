@@ -11,7 +11,7 @@
 'id' => 2,
 'task' => 'Kitchenwiz weitermachen',
 'date' => '2022-12-05',
-'active' => 0,
+'active' => 1,
 ],
 
 [
@@ -33,6 +33,13 @@
 'task' => 'Wäsche machen',
 'date' => '2022-12-05',
 'active' => 1,
+],
+
+[
+'id' => 6,
+'task' => 'Aufgabe 1',
+'date' => '2022-12-12',
+'active' => 2,
 ],
 
 ];

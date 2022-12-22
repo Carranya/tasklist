@@ -1,4 +1,3 @@
-<form action='index.php' method='post'>
 <?php
 
 if(isset($_POST['done'])){
@@ -14,7 +13,7 @@ if(isset($_POST['delete'])){
 }
 
 if(isset($_POST['edit'])){
-    edit($_POST['edit'], $_POST['taskEdit']);
+    edit($_POST['edit'], $_POST['newTitle']);
 }
 
 if(isset($_POST['create'])){
@@ -22,5 +21,3 @@ if(isset($_POST['create'])){
 }
     require('data.php');
     include 'pages/showList.php';
-?>
-</form>
