@@ -2,44 +2,30 @@
 
 [
 'id' => 1,
-'task' => 'Neue Aufgabenliste erstellen',
-'date' => '2022-12-05',
+'task' => 'Bestellung abschicken',
+'date' => '2023-01-11',
 'active' => 1,
 ],
 
 [
 'id' => 2,
-'task' => 'Kitchenwiz weitermachen',
-'date' => '2022-12-05',
+'task' => 'Sitzung vorbereiten',
+'date' => '2023-01-11',
 'active' => 1,
 ],
 
 [
 'id' => 3,
-'task' => 'Neu4',
-'date' => '2022-12-05',
-'active' => 2,
+'task' => 'Herr Müller anrufen',
+'date' => '2023-01-12',
+'active' => 0,
 ],
 
 [
 'id' => 4,
-'task' => 'Kitchenwiz weitermachen',
-'date' => '2022-12-05',
-'active' => 2,
-],
-
-[
-'id' => 5,
-'task' => 'Wäsche machen',
-'date' => '2022-12-05',
+'task' => 'Paket zur Post bringen',
+'date' => '2023-01-12',
 'active' => 1,
-],
-
-[
-'id' => 6,
-'task' => 'Aufgabe 1',
-'date' => '2022-12-12',
-'active' => 2,
 ],
 
 ];
