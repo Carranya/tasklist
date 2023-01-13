@@ -1,3 +1,3 @@
 <?php
 
-$demo = false;
+$demo = true;
