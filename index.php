@@ -11,12 +11,15 @@
     <form action='index.php' method='post'>
     <div class='flex justify-center'>
         <?php
+            require('demo/config.php');
             require('data.php');
-            require('functions/functions.php');
+            require('class/Action.php');
             include 'pages/main.php';
-        ?>
+            ?>
     </div>
     </form>
+    <br>
+    <div class='text-xs text-center'>Copyright© <a href='http://www.karingiang.ch' target='_blank'>Karin Giang</a> 2023</div>
 </body>
 </html>
 
