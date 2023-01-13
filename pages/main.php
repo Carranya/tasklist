@@ -1,23 +1,28 @@
 <?php
 
+use TaskList\Action;
+
+$action = new Action($data);
+
 if(isset($_POST['done'])){
-    done($_POST['done'], 0);
+    $action->modify($_POST['done'], 'active', 0);
 }
 
 if(isset($_POST['undone'])){
-    done($_POST['undone'], 1);
+    $action->modify($_POST['undone'], 'active', 1);
 }
 
 if(isset($_POST['delete'])){
-    done($_POST['delete'], 2);
+    $action->modify($_POST['delete'], 'active', 2);
 }
 
 if(isset($_POST['edit'])){
-    edit($_POST['edit'], $_POST['newTitle']);
+    $action->modify($_POST['edit'], 'task', $_POST['newTitle']);
 }
 
 if(isset($_POST['create'])){
-    create($_POST['newTask']);
+    $action->create($_POST['newTask']);
 }
-    require('data.php');
-    include 'pages/showList.php';
+
+$data = $action->getData();
+include 'pages/showList.php';
