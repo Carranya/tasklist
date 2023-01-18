@@ -23,11 +23,11 @@
                 <span>{{dat.date | date('d. M. Y')}}</span>
                 <div class='flex'>
                 {% if pick == dat.id %}
-                    <button name='edit' value='{{ dat.id }}' class='button'><img src='/img/done.png' class='buttonImg'></button>
-                    <a href='{{path('home')}}' class='button'><img src='/img/close.png' class='buttonImg'></a>
+                    <button name='edit' value='{{ dat.id }}' class='button'><img src='{{ asset('img/done.png') }}' class='buttonImg'></button>
+                    <a href='{{path('home')}}' class='button'><img src='{{ asset('img/close.png')}}' class='buttonImg'></a>
                 {% else %}
-                    <a href='{{path('pick', {id: dat.id})}}' class='button'><img src='/img/edit.png' class='buttonImg'></a>
-                    <a href='{{path('done', {id: dat.id})}}' class='button'><img src='/img/done.png' class='buttonImg'></a>
+                    <a href='{{path('pick', {id: dat.id})}}' class='button'><img src='{{ asset('img/edit.png')}}' class='buttonImg'></a>
+                    <a href='{{path('done', {id: dat.id})}}' class='button'><img src='{{ asset('img/done.png')}}' class='buttonImg'></a>
                 {% endif %}
                 </div>
             </div>
@@ -36,7 +36,7 @@
         <form action='{{path('create')}}' method='post'>
             <div class='showList create'>
                 <input name='newTask' size='20' placeholder='Neue Aufgabe'>
-                <button name='create' value=1 class='button'><img src='/img/create.png' class='buttonImg'></button>
+                <button name='create' value=1 class='button'><img src='{{ asset('img/create.png')}}' class='buttonImg'></button>
             </div>
         </form>
     </div>
