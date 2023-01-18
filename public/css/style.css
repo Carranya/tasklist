@@ -52,3 +52,21 @@ body {
 .buttonImg:hover {
     opacity: 0.4;
 }
+
+.footer {
+    font-size: 0.8em;
+}
+
+.demo {
+    background-color: red;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.demoClose {
+    margin-top: 10px;
+    width: 28px;
+    height: 28px;
+}

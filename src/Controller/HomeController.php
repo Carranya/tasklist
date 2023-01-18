@@ -24,20 +24,6 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/sample', name: 'sample')]
-    public function sample(ManagerRegistry $doctrine): Response
-    {
-        $content = new Tasklist;
-        $content->setTask('Aufgabe');
-        $content->setDate('2023-01-17');
-
-        $em = $doctrine->getManager();
-        $em->persist($content);
-        $em->flush();
-
-        return $this->redirect($this->generateUrl('home'));
-    }
-
     #[Route('/pick/{id?}', name: 'pick')]
     public function pick(TasklistRepository $tasklistRepository, Request $request): Response
     {
@@ -53,6 +39,11 @@ class HomeController extends AbstractController
     #[Route('/done/{id?}', name: 'done')]
     public function done($id, TasklistRepository $tasklistRepository, ManagerRegistry $doctrine): Response
     {
+        global $demo;
+        if($demo == true){
+            return $this->render('home/demo.twig');
+            die;
+        }
         $modifyTask = $tasklistRepository->find($id);
 
         $em = $doctrine->getManager();
@@ -65,6 +56,12 @@ class HomeController extends AbstractController
     #[Route('/edit', name: 'edit')]
     public function edit(TasklistRepository $tasklistRepository, ManagerRegistry $doctrine): Response
     {
+        global $demo;
+        if($demo == true){
+            return $this->render('home/demo.twig');
+            die;
+        }
+
         $modifyTask = $tasklistRepository->find($_POST['edit']);
         $modifyTask->setTask($_POST['newTitle']);
 
@@ -78,6 +75,12 @@ class HomeController extends AbstractController
     #[Route('/create', name: 'create')]
     public function create(ManagerRegistry $doctrine): Response
     {
+        global $demo;
+        if($demo == true){
+            return $this->render('home/demo.twig');
+            die;
+        }
+
         $create = new Tasklist;
         $create->setTask($_POST['newTask']);
         $date = (new \DateTimeImmuTable)->format('Y-m-d');
@@ -86,6 +89,30 @@ class HomeController extends AbstractController
         $em = $doctrine->getManager();
         $em->persist($create);
         $em->flush();
+
+        return $this->redirect($this->generateUrl('home'));
+    }
+
+    #[Route('/sample', name: 'sample')]
+    public function sample(ManagerRegistry $doctrine): Response
+    {
+        $sample = [
+            ['task' => 'Bestellung abschicken', 'date' => '2023-01-11'],
+            ['task' => 'Sitzung vorbereiten', 'date' => '2023-01-11'],
+            ['task' => 'Herr Müller anrufen', 'date' => '2023-01-12'],
+            ['task' => 'Paket zur Post bringen', 'date' => '2023-01-12'],
+        ];
+
+        foreach($sample as $sampl){
+
+            $create = new Tasklist;
+            $create->setTask($sampl['task']);
+            $create->setDate($sampl['date']);
+            
+            $em = $doctrine->getManager();
+            $em->persist($create);
+            $em->flush();
+        }
 
         return $this->redirect($this->generateUrl('home'));
     }

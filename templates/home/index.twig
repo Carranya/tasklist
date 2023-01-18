@@ -20,7 +20,7 @@
                 {% else %}
                     <span>{{dat.task}}</span>
                 {% endif %}
-                <span>{{dat.date}}</span>
+                <span>{{dat.date | date('d. M. Y')}}</span>
                 <div class='flex'>
                 {% if pick == dat.id %}
                     <button name='edit' value='{{ dat.id }}' class='button'><img src='/img/done.png' class='buttonImg'></button>
@@ -30,7 +30,6 @@
                     <a href='{{path('done', {id: dat.id})}}' class='button'><img src='/img/done.png' class='buttonImg'></a>
                 {% endif %}
                 </div>
-                {# <button>Pick</button> #}
             </div>
             </form>
         {% endfor %}
