@@ -1,0 +1,54 @@
+body {
+    font-family: Verdana;
+    text-align: center;
+    background-color: #e3e3e3;
+}
+
+.flex {
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+}
+
+.main {
+    width: 384px;
+    padding: 12px;
+    margin: 20px;
+    background-color: skyblue;
+    border-radius: 12px;
+}
+
+.title {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.showList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+}
+
+.create {
+    background-color: lightpink;
+    margin-top: 20px;
+}
+
+.button {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+.buttonImg {
+    width: 28px;
+    height: 28px;
+}
+
+.buttonImg:hover {
+    opacity: 0.4;
+}

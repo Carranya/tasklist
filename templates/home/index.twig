@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class='flex center'>
+    <div class='main'>
+        <h1 class='title'>Aufgabenliste</h1>
+        {% set step = 0 %}
+        {% for dat in data %}
+            {% if step == 0 %}
+                {% set step = 1 %}
+                {% set color = 'lightpink' %}
+            {% else %}
+                {% set step = 0 %}
+                {% set color = 'lavender' %}    
+            {% endif %}
+            <form action='{{path('edit')}}' method='post'>
+            <div class='showList' style='background-color: {{ color }}'>
+                {% if pick == dat.id %}
+                    <span><input name='newTitle' size='10' value={{dat.task}}></span>
+                {% else %}
+                    <span>{{dat.task}}</span>
+                {% endif %}
+                <span>{{dat.date}}</span>
+                <div class='flex'>
+                {% if pick == dat.id %}
+                    <button name='edit' value='{{ dat.id }}' class='button'><img src='/img/done.png' class='buttonImg'></button>
+                    <a href='{{path('home')}}' class='button'><img src='/img/close.png' class='buttonImg'></a>
+                {% else %}
+                    <a href='{{path('pick', {id: dat.id})}}' class='button'><img src='/img/edit.png' class='buttonImg'></a>
+                    <a href='{{path('done', {id: dat.id})}}' class='button'><img src='/img/done.png' class='buttonImg'></a>
+                {% endif %}
+                </div>
+                {# <button>Pick</button> #}
+            </div>
+            </form>
+        {% endfor %}
+        <form action='{{path('create')}}' method='post'>
+            <div class='showList create'>
+                <input name='newTask' size='20' placeholder='Neue Aufgabe'>
+                <button name='create' value=1 class='button'><img src='/img/create.png' class='buttonImg'></button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
