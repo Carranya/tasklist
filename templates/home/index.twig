@@ -8,10 +8,10 @@
         {% for dat in data %}
             {% if step == 0 %}
                 {% set step = 1 %}
-                {% set color = 'lightpink' %}
+                {% set color = '#bfdbfe' %}
             {% else %}
                 {% set step = 0 %}
-                {% set color = 'lavender' %}    
+                {% set color = '#dbeafe' %}    
             {% endif %}
             <form action='{{path('edit')}}' method='post'>
             <div class='showList' style='background-color: {{ color }}'>

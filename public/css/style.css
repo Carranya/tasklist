@@ -1,7 +1,7 @@
 body {
     font-family: Verdana;
     text-align: center;
-    background-color: #e3e3e3;
+    background-color: #dbeafe;
 }
 
 .flex {
@@ -16,7 +16,7 @@ body {
     width: 384px;
     padding: 12px;
     margin: 20px;
-    background-color: skyblue;
+    background-color: #93c5fd;
     border-radius: 12px;
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .create {
-    background-color: lightpink;
+    background-color: #dbeafe;
     margin-top: 20px;
 }
 
@@ -42,6 +42,7 @@ body {
     border: none;
     outline: none;
     padding: 0;
+    cursor: pointer;
 }
 
 .buttonImg {
