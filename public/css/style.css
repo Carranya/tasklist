@@ -71,3 +71,7 @@ body {
     width: 28px;
     height: 28px;
 }
+
+.demoClose:hover {
+    opacity: 0.4;
+}
