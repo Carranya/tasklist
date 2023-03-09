@@ -20,4 +20,10 @@
         </div>
     </div>
 </div>
+<form action="{{ route('main') }}" method='post'>
+    @csrf
+<div class='flex justify-center'>
+    <button name='listId' value=1>Weiter</button>
+</div>
+</form>
 @endsection
