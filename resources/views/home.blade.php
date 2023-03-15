@@ -23,7 +23,10 @@
 <form action="{{ route('main') }}" method='post'>
     @csrf
 <div class='flex justify-center'>
-    <button name='listId' value=1>Weiter</button>
+    <button name='listId' value=1 class='w-80 text-center m-5 p-3 font-bold text-2xl bg-green-600'>List1</button>
+    <br>
+    <button name='listId' value=2>List2</button>
 </div>
 </form>
+
 @endsection
