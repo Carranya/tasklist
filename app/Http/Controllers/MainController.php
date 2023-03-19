@@ -4,10 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Tasklist;
 
 class MainController extends Controller
 {
     public function main(){
+
+
+        if(request('createList') != null){
+            $createList = new Tasklist;
+            $createList->title = 'New List';
+            $createList->userId = request('createList');
+            $createList->save();
+            return redirect('/home');
+        }
+
+
 
         $listId = request('listId');
 
