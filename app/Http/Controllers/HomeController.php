@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tasklist;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $lists = Tasklist::all();
+        $user = Auth::user();
+        $lists = Tasklist::where('userId', $user['id'])->get();
         return view('home', [
+            'userId' => $user['id'],
             'lists' => $lists,
         ]);
     }

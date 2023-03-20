@@ -13,7 +13,7 @@ class MainController extends Controller
 
         if(request('createList') != null){
             $createList = new Tasklist;
-            $createList->title = 'New List';
+            $createList->title = request('newListTitle');
             $createList->userId = request('createList');
             $createList->save();
             return redirect('/home');
