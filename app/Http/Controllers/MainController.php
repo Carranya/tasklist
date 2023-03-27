@@ -10,6 +10,19 @@ class MainController extends Controller
 {
     public function main(){
 
+        if(request('deleteList') != null){
+            $id = request('deleteList');
+            $deleteList = Tasklist::find($id);
+            $deleteList->delete();
+            $deleteTasks = Task::where('listId', $id)->get();
+
+            foreach($deleteTasks as $deleteTask){
+                $del = Task::find($deleteTask['id']);
+                $del->delete();
+            }
+            return redirect('/home');
+        }
+
 
         if(request('createList') != null){
             $createList = new Tasklist;

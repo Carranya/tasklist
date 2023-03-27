@@ -31,7 +31,7 @@
                 </button>
                 <div class='flex justify-center'>
                     <img src='img/edit.png' class='w-7 hover:opacity-40' onclick="alert('Hallo')">
-                    <img src='img/delete.png' class='w-7 hover:opacity-40'>
+                    <button name='deleteList' value="{{$list['id']}}" onclick="return confirm('Are you sure?');"><img src='img/delete.png' class='w-7 hover:opacity-40'></button>
                 </div>
             </div>
         @endforeach
